@@ -1,0 +1,19 @@
+{
+  "display_name": "PySparkAuto",
+  "language": "python",
+  "argv": [
+    "C:\\Anaconda3\\python.exe",
+    "-m",
+    "ipykernel",
+    "-f",
+    "{connection_file}"
+  ],
+  "env": {
+    "SPARK_HOME": "C:\\spark",
+    "PYTHONPATH": "C:\\spark\\python;C:\\spark\\python\\lib\\py4j-0.10.7-src.zip",
+    "PYSPARK_DRIVER_PYTHON": "C:\\Anaconda3\\python.exe",
+    "PYSPARK_PYTHON": "C:\\Anaconda3\\python.exe",
+    "PATH": "C:\\Anaconda3;C:\\Anaconda3\\Library\\mingw-w64\\bin;C:\\Anaconda3\\Library\\usr\\bin;C:\\Anaconda3\\Library\\bin;C:\\Anaconda3\\Scripts;C:\\Anaconda3\\bin;C:\\Anaconda3\\condabin;C:\\MiKTeX\\miktex\\bin\\x64;C:\\Users\\Das\\bin;C:\\R\\Rtools\\bin;C:\\R\\Rtools\\mingw_64\\bin;C:\\Users\\das\\AppData\\Roaming\\npm;C:\\Groovy\\gradle\\bin;C:\\Groovy\\grails\\bin;C:\\Groovy\\Griffon\\bin;C:\\nodejs;C:\\PROGRA~1\\SlikSvn\\bin;C:\\PROGRA~1\\TORTOI~1\\bin;c:\\PROGRA~2\\MI3EDC~1\\110\\Tools\\Binn;c:\\PROGRA~1\\MI3EDC~1\\110\\DTS\\Binn;c:\\hive\\bin;C:\\PROGRA~2\\Pandoc;C:\\MiKTeX\\miktex\\bin\\x64;C:\\PROGRA~2\\MIKTEX~1.9\\miktex\\bin;C:\\windows\\system32\\wbem;C:\\Go\\bin;C:\\windows;C:\\windows\\system32;C:\\Erlang\\bin;C:\\Elixir\\bin;C:\\Users\\das\\CARGO~1\\bin;C:\\Windows\\SysWOW64\\WINDOW~1\\v1.0;C:\\PROGRA~1\\MI564C~1\\Bin;C:\\PROGRA~3\\Oracle\\Java\\javapath;c:\\python37;c:\\python37\\scripts;C:\\ANACON~1;C:\\ANACON~1\\Scripts;C:\\Perl64\\bin;C:\\IMAGEM~1.1-Q;C:\\PROGRA~1\\ffmpeg\\bin;C:\\hadoop\\sbin;C:\\hadoop\\bin;C:\\PROGRA~2\\MOZILL~1;C:\\PROGRA~2\\sbt\\bin;C:\\mongodb\\bin;C:\\PROGRA~1\\Java\\JDK18~1.0_6\\bin;c:\\scala\\bin;C:\\Ruby\\bin;C:\\PROGRA~2\\WI3CF2~1\\8.1\\WINDOW~1;c:\\gtk\\bin;C:\\R\\core\\bin\\x64;C:\\Groovy\\Groovy\\bin;C:\\PROGRA~2\\MICROS~2\\F#\\3.1\\FRAMEW~1\\v4.0;C:\\PROGRA~2\\REMOBJ~1\\Elements\\bin;C:\\spark\\bin;C:\\spark\\sbin;C:\\PROGRA~2\\WinMerge;C:\\SYSINT~1;C:\\ACTIVA~1\\bin;C:\\maven\\bin;C:\\cygwin64\\bin;C:\\Users\\das\\bin;C:\\Windows\\System32;C:\\PROGRA~1\\Nmap;C:\\kotlinc\\bin;C:\\KOTLIN~2\\bin;C:\\kafka\\bin\\windows;D:\\Desktop\\PPT\\Archive\\go\\code\\bin;C:\\SQLITE3;C:\\PROGRA~2\\GRAPHV~1.38\\bin;c:\\flink\\bin;c:\\python37\\lib\\SITE-P~1\\PYWIN3~1;C:\\Redis;C:\\Program Files\\dotnet;C:\\Program Files\\Microsoft SQL Server\\130\\Tools\\Binn;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\170\\Tools\\Binn;C:\\Program Files (x86)\\dotnet;C:\\Program Files\\Microsoft SQL Server\\Client SDK\\ODBC\\130\\Tools\\Binn;C:\\Program Files (x86)\\Microsoft SQL Server\\140\\Tools\\Binn;C:\\Program Files\\Microsoft SQL Server\\140\\Tools\\Binn;C:\\Program Files\\Microsoft SQL Server\\140\\DTS\\Binn;C:\\Program Files (x86)\\Microsoft SQL Server\\150\\DTS\\Binn;C:\\Program Files\\Git\\cmd;C:\\cassandra\\bin;C:\\Users\\das\\.dotnet\\tools;C:\\rabbitmq\\sbin;C:\\Docker;C:\\VirtualBox;C:\\Minikube;C:\\Meld",
+    "PYTHONSTARTUP": "C:\\spark\\python\\pyspark\\shell.py"  
+  }
+}

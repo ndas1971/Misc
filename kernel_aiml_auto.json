@@ -1,0 +1,20 @@
+{
+  "display_name": "PySparkAuto",
+  "language": "python",
+  "argv": [
+    "C:\\Anaconda3\\python.exe",
+    "-m",
+    "ipykernel",
+    "-f",
+    "{connection_file}"
+  ],
+  "env": {
+    "SPARK_HOME": "C:\\spark",
+    "PYTHONPATH": "C:\\spark\\python;C:\\spark\\python\\lib\\py4j-0.10.7-src.zip",
+    "PYSPARK_DRIVER_PYTHON": "C:\\Anaconda3\\python.exe",
+    "PYSPARK_PYTHON": "C:\\Anaconda3\\python.exe",
+    "PYTHONSTARTUP": "C:\\spark\\python\\pyspark\\shell.py" ,
+    "PATH": "C:\\Anaconda3\\envs\\aiml;C:\\Anaconda3\\envs\\aiml\\Library\\mingw-w64\\bin;C:\\Anaconda3\\envs\\aiml\\Library\\usr\\bin;C:\\Anaconda3\\envs\\aiml\\Library\\bin;C:\\Anaconda3\\envs\\aiml\\Scripts;C:\\Anaconda3\\envs\\aiml\\bin;C:\\Anaconda3;C:\\Anaconda3\\Library\\mingw-w64\\bin;C:\\Anaconda3\\Library\\usr\\bin;C:\\Anaconda3\\Library\\bin;C:\\Anaconda3\\Scripts;C:\\Anaconda3\\bin;C:\\Anaconda3\\condabin;C:\\MiKTeX\\miktex\\bin\\x64;C:\\Users\\Das\\bin;C:\\windows\\system32\\wbem;C:\\windows\\system32;C:\\Windows\\SysWOW64\\WINDOW~1\\v1.0" ,
+    "JAVA_HOME": "C:\\Program Files\\Java\\jdk1.8.0_65"
+    }
+}
