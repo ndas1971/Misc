@@ -5,3 +5,21 @@ Download
       https://github.com/ndas1971/PyQs/blob/master/ml-python-initial-reference.zip
     Pyspark trg materials 
       https://github.com/ndas1971/PyQs/blob/master/pyspark-initial-reference.zip
+      
+      
+Reference Link 
+    Jupyter 
+        https://jupyter.org/
+    JupyterHub 
+        https://jupyter.org/hub
+    Jupyter Reference 
+        https://jupyter.readthedocs.io/en/latest/
+        
+    Check the list of Kernels 
+        https://github.com/jupyter/jupyter/wiki/Jupyter-kernels
+
+    Gallary 
+        https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks
+
+    Check- How to plot  
+        https://anaconda.org/jbednar/plotting_pitfalls/notebook
