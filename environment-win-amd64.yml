@@ -5,6 +5,7 @@ channels:
 - defaults
 - gwerbin 
 - districtdatalabs 
+- anaconda
 dependencies:
 - cartopy
 - altair
@@ -196,6 +197,8 @@ dependencies:
 - tpot
 - scikit-surprise
 - pyldavis
+- graphviz
+- python-graphviz
 - pip:
   - autopep8
   - backports.shutil-get-terminal-size

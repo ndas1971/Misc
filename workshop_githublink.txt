@@ -1,0 +1,7 @@
+Download
+    Workshop code and data 
+      https://github.com/ndas1971/PyQs/blob/master/jupyter_workshop_initial_reference.zip
+    Python ML trg materials 
+      https://github.com/ndas1971/PyQs/blob/master/ml-python-initial-reference.zip
+    Pyspark trg materials 
+      https://github.com/ndas1971/PyQs/blob/master/pyspark-initial-reference.zip
