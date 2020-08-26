@@ -14,6 +14,8 @@ Reference Link
         https://jupyter.org/hub
     Jupyter Reference 
         https://jupyter.readthedocs.io/en/latest/
+    Jupyter Architecture 
+        https://jupyter.readthedocs.io/en/latest/projects/architecture/content-architecture.html
         
     Check the list of Kernels 
         https://github.com/jupyter/jupyter/wiki/Jupyter-kernels
