@@ -19,7 +19,6 @@ nltk
 spacy
 plotly
 pyarrow
-opencv
 tensorflow
 tpot
 scikit-surprise
