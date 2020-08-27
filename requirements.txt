@@ -1,6 +1,5 @@
 beautifulsoup4
 cython
-dask
 flask
 numba
 numexpr
