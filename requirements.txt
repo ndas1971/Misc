@@ -24,11 +24,7 @@ tpot
 scikit-surprise
 pyldavis
 graphviz
-python-graphviz
 pytest-cov
-stanfordcorenlp
-sumy
-sklearn-pandas
 gensim
-xldr 
+xlrd
 
