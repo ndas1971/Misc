@@ -2,19 +2,19 @@
   "display_name": "PySpark",
   "language": "python",
   "argv": [
-    "C:\\Anaconda3\\envs\\aiml\\python.exe",
+    "D:\\training\\Anaconda3\\envs\\aiml\\python.exe",
     "-m",
     "ipykernel",
     "-f",
     "{connection_file}"
   ],
   "env": {
-    "SPARK_HOME": "C:\\spark",
-    "PYTHONPATH": "C:\\spark\\python;C:\\spark\\python\\lib\\py4j-0.10.7-src.zip;C:\\Anaconda3\\envs\\aiml\\python36.zip;C:\\Anaconda3\\envs\\aiml\\DLLs;C:\\Anaconda3\\envs\\aiml\\lib;C:\\Anaconda3\\envs\\aiml;C:\\Anaconda3\\envs\\aiml\\lib\\site-packages;C:\\Anaconda3\\envs\\aiml\\lib\\site-packages\\win32;C:\\Anaconda3\\envs\\aiml\\lib\\site-packages\\win32\\lib;C:\\Anaconda3\\envs\\aiml\\lib\\site-packages\\Pythonwin",
-    "PYSPARK_DRIVER_PYTHON": "C:\\Anaconda3\\envs\\aiml\\python.exe",
-    "PYSPARK_PYTHON": "C:\\Anaconda3\\envs\\aiml\\python.exe",
-    "PYTHONSTARTUP": "C:\\spark\\python\\pyspark\\shell.py" ,
-    "PATH": "C:\\Anaconda3\\envs\\aiml;C:\\Anaconda3\\envs\\aiml\\Library\\mingw-w64\\bin;C:\\Anaconda3\\envs\\aiml\\Library\\usr\\bin;C:\\Anaconda3\\envs\\aiml\\Library\\bin;C:\\Anaconda3\\envs\\aiml\\Scripts;C:\\Anaconda3\\envs\\aiml\\bin;C:\\MiKTeX\\miktex\\bin\\x64;C:\\Users\\Das\\bin;C:\\windows\\system32\\wbem;C:\\windows\\system32;C:\\Windows\\SysWOW64\\WINDOW~1\\v1.0" ,
-    "JAVA_HOME": "C:\\Program Files\\Java\\jdk1.8.0_65"
+    "SPARK_HOME": "D:\\training\\spark",
+    "PYTHONPATH": "D:\\training\\spark\\python;D:\\training\\spark\\python\\lib\\py4j-0.10.7-src.zip;D:\\training\\Anaconda3\\envs\\aiml\\python36.zip;D:\\training\\Anaconda3\\envs\\aiml\\DLLs;D:\\training\\Anaconda3\\envs\\aiml\\lib;D:\\training\\Anaconda3\\envs\\aiml;D:\\training\\Anaconda3\\envs\\aiml\\lib\\site-packages;D:\\training\\Anaconda3\\envs\\aiml\\lib\\site-packages\\win32;D:\\training\\Anaconda3\\envs\\aiml\\lib\\site-packages\\win32\\lib;D:\\training\\Anaconda3\\envs\\aiml\\lib\\site-packages\\Pythonwin",
+    "PYSPARK_DRIVER_PYTHON": "D:\\training\\Anaconda3\\envs\\aiml\\python.exe",
+    "PYSPARK_PYTHON": "D:\\training\\Anaconda3\\envs\\aiml\\python.exe",
+    "PYTHONSTARTUP": "D:\\training\\spark\\python\\pyspark\\shell.py" ,
+    "PATH": "D:\\training\\Anaconda3\\envs\\aiml;D:\\training\\Anaconda3\\envs\\aiml\\Library\\mingw-w64\\bin;D:\\training\\Anaconda3\\envs\\aiml\\Library\\usr\\bin;D:\\training\\Anaconda3\\envs\\aiml\\Library\\bin;D:\\training\\Anaconda3\\envs\\aiml\\Scripts;D:\\training\\Anaconda3\\envs\\aiml\\bin;C:\\MiKTeX\\miktex\\bin\\x64;C:\\Users\\Das\\bin;C:\\windows\\system32\\wbem;C:\\windows\\system32;C:\\Windows\\SysWOW64\\WINDOW~1\\v1.0" ,
+    "JAVA_HOME": "D:\\training\\jdk1.8.0_65"
     }
 }
