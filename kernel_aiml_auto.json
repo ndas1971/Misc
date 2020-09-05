@@ -10,7 +10,7 @@
   ],
   "env": {
     "SPARK_HOME": "D:\\training\\spark",
-    "PYTHONPATH": "D:\\training\\spark\\python;D:\\training\\spark\\python\\lib\\py4j-0.10.7-src.zip;D:\\training\\Anaconda3\\envs\\aiml\\python36.zip;D:\\training\\Anaconda3\\envs\\aiml\\DLLs;D:\\training\\Anaconda3\\envs\\aiml\\lib;D:\\training\\Anaconda3\\envs\\aiml;D:\\training\\Anaconda3\\envs\\aiml\\lib\\site-packages;D:\\training\\Anaconda3\\envs\\aiml\\lib\\site-packages\\win32;D:\\training\\Anaconda3\\envs\\aiml\\lib\\site-packages\\win32\\lib;D:\\training\\Anaconda3\\envs\\aiml\\lib\\site-packages\\Pythonwin",
+    "PYTHONPATH": "D:\\training\\spark\\python;D:\\training\\spark\\python\\lib\\py4j-0.10.6-src.zip",
     "PYSPARK_DRIVER_PYTHON": "D:\\training\\Anaconda3\\envs\\aiml\\python.exe",
     "PYSPARK_PYTHON": "D:\\training\\Anaconda3\\envs\\aiml\\python.exe",
     "PYTHONSTARTUP": "D:\\training\\spark\\python\\pyspark\\shell.py" ,
