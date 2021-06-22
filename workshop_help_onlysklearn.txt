@@ -495,6 +495,99 @@ draw_pca(X, y, target_names, ax2, 'Original IRIS dataset - full variance')
 fig.tight_layout()
 fig.show()
 
+###regression diagnostic 
+coeffs = pd.DataFrame(np.hstack((np.array(m.intercept_) ,m.coef_)), 
+    columns=['Coeff'], index=['Intercept'] + boston["feature_names"].tolist())    
+print(coeffs)
+       
+
+#scatter_matrix with boston - very congested  
+from pandas.plotting import scatter_matrix
+scatter_matrix(pd.DataFrame(X, columns=boston.feature_names), 
+    diagonal='kde')
+plt.show()
+
+#Congested, so draw only two variables eg LSTAT and RM and check the correlation line 
+import seaborn as sns 
+data = pd.DataFrame(X, columns=boston.feature_names)
+sns.jointplot(data=data, x="LSTAT", y="RM", kind='reg')
+plt.show()
+#Does it depend on lower value and upper value of Mdev 
+#Crealy two cluster, for high price, no of rooms const and not so dependent on slum area
+!pip install --upgrade seaborn
+data['bin'] = Y < Y.mean()
+sns.jointplot(data=data, x="LSTAT", y="RM", hue="bin") #no Kind 
+
+
+
+#scatter_matrix with Iris 
+iris  = load_iris()
+from pandas.plotting import scatter_matrix
+scatter_matrix(pd.DataFrame(iris.data, columns=iris.feature_names), 
+    diagonal='kde')
+    
+#Or check corr coefficient 
+boston = load_boston() 
+pd.DataFrame(boston.data, columns=boston.feature_names).corr()
+
+#for example , for random, really they are close to zero 
+np.random.seed(42)
+df = pd.DataFrame({'a': np.random.randn(1000), 'b': np.random.random(1000)})
+>>> df.corr()
+          a         b
+a  1.000000 -0.009439
+b -0.009439  1.000000
+#And scatter matrix 
+from pandas.plotting import scatter_matrix
+scatter_matrix(df, diagonal='kde')
+plt.show()
+#Or plot ranking based on those 
+from yellowbrick.features import *
+
+_, axes = plt.subplots(ncols=2, figsize=(8,4))
+# Shapiro-Wilk algorithm to assess the normality of  the feature
+rank1d(X, ax=axes[0], show=False,features=boston.feature_names)
+#Correlation of pairs of feature 
+rank2d(X, algorithm='pearson', ax=axes[1], show=False,features=boston.feature_names)
+plt.show()
+
+#FeatureCorrelation - corr of target with each feature 
+from yellowbrick.target import *
+# Create a list of the feature names
+features = np.array(boston['feature_names'])
+# Instantiate the visualizer
+visualizer = FeatureCorrelation(labels=features)
+visualizer.fit(X, Y)        # Fit the data to the visualizer
+visualizer.show()  
+
+#https://www.scikit-yb.org/en/latest/api/features/manifold.html
+#Manifold Learning can be thought of as an attempt to generalize linear frameworks 
+like PCA to be sensitive to non-linear structure in data. 
+
+High-dimensional datasets can be very difficult to visualize. 
+While data in two or three dimensions can be plotted to show the inherent structure of the data, 
+equivalent high-dimensional plots are much less intuitive. 
+To aid visualization of the structure of a dataset, 
+the dimension must be reduced in some way.
+
+In an unsupervised or clustering problem, 
+a single color is used to show structure and overlap. In a classification problem discrete 
+colors are used for each class. In a regression problem, a color map can be used to describe points 
+as a heat map of their regression values.
+
+"isomap"
+    maintains geodesic distances between all points
+    (euclidian distance = in 2d , geodesic = in multi dimension, calculcated shortest path in graph)
+"mds"
+	Multi-dimensional scaling shows similarity or disimilarity in the dataset 
+
+
+from yellowbrick.features import *
+_, axes = plt.subplots(ncols=2, figsize=(8,4))
+manifold_embedding(X, Y, manifold="isomap", n_neighbors=10, ax=axes[0], show=False,target_type="continuous")
+manifold_embedding(X, Y, manifold="mds", n_neighbors=10, ax=axes[1], show=False,target_type="continuous")
+plt.show()  
+
 ###SVM 
 iris = load_iris()
 parameters = {'kernel':('linear', 'rbf'), 'C':[1, 10]}
