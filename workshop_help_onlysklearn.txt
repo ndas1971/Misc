@@ -301,7 +301,50 @@ D. Excel "data/sales_transactions.xlsx"
 Q. "What percentage of the total order  does each order represent?"
 
 
+F. Pandas connecting to DB 
+Connect to fake.db 
+Q1. Display below when dob between 1990 to 2009-12-31
 
+DOB         Country         count 
+1990-1994
+1995-1999
+2000-2004
+2005-2009
+
+
+G. Titanic - https://www.kaggle.com/c/titanic/data
+0. Understand data, download only train.csv 
+A. Do below in pandas 
+1. Read data 
+2. Check head , datatypes , columns, index 
+3. How many rows are present?
+4. display all rows and columns from 'name' to  'sibsp' inclusive
+5. How many NaN are present in 'fare' and 'embarked' 
+6. Replace any NaN of 'fare' and 'embarked'  by mode of that column 
+7.drop cabin 
+8. check any row containing any null 
+9. Display first row of all columns , can you find which column is still null 
+
+10.Setup the data 
+#Series.apply can take py fn or ufun, py fn- operates on each element 
+#df.apply has to be ufunc , if python func, vectorise with np.vectorize 
+a) create 'Title' column (take title from 'name')
+b) Create 'LastName' column from 'name' 
+c) Create  'FamilySize' which is equal to 'sibsp' + 'parch' + 1
+d) Create 'FamilyID' which concatenation of 'LastName' and 'FamiliySize'
+e) if family size is <=2 , make 'FamilyID' as 'Small_Family'
+f) Create 'AgeOriginallyNaN' as 0 or 1 based on age is NaN or present 
+g) For each title, get median age , and rename 'age' column to AgeFilledMedianByTitle
+Create a new DataFrame (would be used for merging) of above 
+h)Create 'final_age' which would contain 'age' if not NaN else value of 'AgeFilledMedianByTitle'
+ 
+11. drop age column 
+12.Drop any row which contain any NaN 
+
+
+
+
+ 
 
 
 ###hypothesis testing 
