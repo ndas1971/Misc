@@ -199,13 +199,46 @@ ax2.set_visible(True)     #Set the artist's visibility.
 #then show 
 plt.show()
 
-##numpy 
+##numpy -HANDS-ON 
+The Lévi function is one of the many test functions for optimization 
+that researchers have developed to study and benchmark optimization algorithms 
+(https://en.wikipedia.org/wiki/Test_functions_for_optimization):
 $$f(x,y) = sin^2(3\pi x)+(x−1)^2(1+sin^2(3\pi y))+(y−1)^2(1+sin^2(2\pi y))$$
 
+Use 
+https://numpy.org/doc/stable/reference/generated/numpy.mgrid.html
+
+Find out Z=f(x,y) on [−10,10] 
+
+Then follow below to draw the surface 
+#both 2d and 3D 
+# Set up a figure twice as tall as it is wide
+fig = plt.figure(figsize=plt.figaspect(2.))
+fig.suptitle('Complex plot')
+ax = fig.add_subplot(2, 1, 1)  #nrows X ncols X which_one_is_current, could be 211
+
+# We use a logarithmic scale for the color here.
+#extent= bounding box , (left, right, bottom, top) 
+#origin = upper = topleft=0,0, bottomright=N,N 
+#origin = lower = bottomleft=0,0, topright=N,N 
+#hot_r is reverse of hot, cool_r is reverse of cool 
+#reverse means color reverse (end color becomes start color)
+ax.imshow(np.log(Z), cmap=plt.cm.hot_r, extent=(-k, k, -k, k), origin="lower")
+ax.set_axis_off()
+
+#The minimize() function also works in multiple dimensions:
+# We use the Powell method.
+import scipy.optimize as opt
+x0, y0 = opt.minimize(g, (8, 3),  method='Powell').x
+x0, y0
+#Draw
+ax.scatter(x0, y0, s=100)
+ax.set_axis_off()
 
 
-##Pandas 
-A. Daily attendance of bike tracks
+##Pandas - Handson 
+A. Daily attendance of bike tracks 
+(also available in data folder)
 url = "https://raw.githubusercontent.com/ndas1971/Misc/master/data/bikes.csv"
 
 1. Read 
@@ -218,7 +251,7 @@ url = "https://raw.githubusercontent.com/ndas1971/Misc/master/data/bikes.csv"
 
 df = pd.read_csv(url, index_col='Date', parse_dates=True, dayfirst=True)
 
-
+#Further configuration 
 from ipywidgets import interact,interact_manual
 
 @interact(n=(1, 30))
@@ -264,7 +297,9 @@ Display simple stats of above
 Trend: display average double faults in each year 
                  
                  
-                 
+D. Excel "data/sales_transactions.xlsx"
+Q. "What percentage of the total order  does each order represent?"
+
 
 
 
