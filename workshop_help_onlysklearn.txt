@@ -1,6 +1,7 @@
-D:\training\Anaconda3\Scripts\activate aiml 
-jupyter notebook --notebook-dir='D:/handson'
+###Introduction 
+$ jupyter notebook --notebook-dir="D:/demo"
 
+$ jupyter-lab --notebook-dir="D:/demo"
 
 #Step-1  , Run - Shift+Enter 
 print("Hello world!")
@@ -16,7 +17,22 @@ _ * 3
 
 #step-5: Magic command 
 #https://ipython.readthedocs.io/en/stable/interactive/magics.html
+#Many magic goodies, pl go through 
 %lsmagic
+
+line magics, which are denoted by a single % prefix and operate on a single line of input, 
+and cell magics, which are denoted by a double %% prefix and operate on multiple lines of input.
+
+eg %timeit 
+Usage, in line mode:
+  %timeit [-n<N> -r<R> [-t|-c] -q -p<P> -o] statement
+or in cell mode:
+  %%timeit [-n<N> -r<R> [-t|-c] -q -p<P> -o] setup_code
+  code
+  code...
+
+Help 
+%timeit?
 
 #Step-51:Use 
 %pwd  #look at the current work dir
@@ -30,6 +46,55 @@ Hello world!
 # Let's check what this file contains.
 with open('test.txt', 'r') as f:
     print(f.read())
+    
+#Or 
+%pycat test.txt
+
+#List all variables 
+a = 2
+%who 
+#Store any variable and read in any other notebook 
+%store a 
+
+#other notebook 
+%store -r a 
+print(a)
+
+#Execute Html script 
+%%html
+<html>
+<body>
+<table>
+        <tr> 
+            <th>Name</th> 
+            <th>Country</th> 
+            <th>Age</th> 
+        </tr> 
+        <tr> 
+            <td>Sid</td> 
+            <td>India</td> 
+            <td>22</td> 
+        </tr>
+        <tr> 
+            <td>Dave</td> 
+            <td>UK</td> 
+            <td>28</td> 
+        </tr>
+</table>
+</body>
+</html>
+
+#Get env 
+%env PATH 
+
+#Set env var 
+%env variable value
+
+#Object detail info 
+a = "The World Makes Sense!"
+%pinfo a
+
+
 
 
 #find more information about any command by adding ? after it
@@ -85,7 +150,7 @@ And finally, adding images is easy: ![Alt text](https://www.example.com/image.jp
 Also mathematical equation [check Latex link](http://ctan.math.ca/tex-archive/info/symbols/comprehensive/SYMLIST) 
 $$\hat{f}(\xi) = \int_{-\infty}^{+\infty} f(x) \, \exp \left(-2i\pi x \xi \right) dx $$
 
-
+##IF_TIME_PERMITS:
 #Step-9: Sophisticated display 
 from IPython.display import HTML, SVG, YouTubeVideo
 
@@ -151,55 +216,68 @@ hence may fail couple of time, but keep on trying
 
 $ jupyter nbconvert --to pdf first.ipynb
 
+###Introducing the multidimensional array in NumPy for fast array computations
+
+import random
+import numpy as np
+
+#Create 
+n = 1000000
+x = [random.random() for _ in range(n)]
+y = [random.random() for _ in range(n)]
+
+#check 
+x[:3], y[:3]
+
+#element-wise sum of all of these numbers:
+z = [x[i] + y[i] for i in range(n)]
+z[:3]
 
 
+#How long does this computation take
+%timeit [x[i] + y[i] for i in range(n)]
 
-##matplotlib 
-t = np.arange(0., 5., 0.2)
-figure, (ax1, ax2) = plt.subplots(nrows=1, ncols=2, sharex=True, sharey=False, figsize=(15,15))
-figure.suptitle('multiplot', fontsize=16) #called suptitle instead of title 
-ax1.plot(t, t, 'r-')  
-ax1.set_title('Straight line')
-ax2.scatter(t, t**2, color='b')
-ax2.set_xlabel('x axis label')
-ax2.set_ylabel('y axis label')
-ax2.set_title('Simple plot')
-ax2.legend(['Square',])
+#with NumPy
+xa = np.array(x)
+ya = np.array(y)
 
-ax2.axis([0, 5, 0,25]) #Set the axis, [xmin, xmax, ymin, ymax] or 'off' or 'equal' or 'scaled' or 'tight' etc 
-ax2.set_axis_off() #Turn off the axis. 
-ax2.set_axis_on()  # Turn on the axis.
-#or 
-ax2.set_ylim(0,25)
-ax2.set_xlim(0, 5) 
+xa[:3]
 
-#in data cordinates 
-ax2.text(2, 4, r'$\mu=100,\ \sigma=15$')  #Any text 
-ax2.annotate('local max', xy=(2, 1), xytext=(3, 1.5),arrowprops=dict(facecolor='black', shrink=0.05),) #xytext=location of text, xy=location for annotation
-ax2.arrow(4,4,1,1)  #(x, y, dx, dy, **kwargs)    #Add an arrow to the axes.
-ax2.grid(b=True, color='r', linestyle='-', linewidth=.5)
-#ax2.set_label(s)       #Set the label to s for auto legend.
- 
+#element-wise sum of these arrays
+za = xa + ya
+za[:3]
 
-ax2.set_yscale('linear') #log, symlog, logit
-ax2.set_xscale('linear')
-ax2.set_visible(True)     #Set the artist's visibility.
-#ax2.set_zorder(level)  #Set the zorder for the artist. Artists with lower zorder values are drawn first.
+#compare the performance . It's better 
+%timeit xa + ya
 
-# ax2.set_xticks(ticks, minor=False)     #Set the x ticks with list of ticks(List of tick locations.)
-# ax2.set_xticklabels(labels, fontdict=None, minor=False, **kwargs)#Set the x-tick labels with list of string labels.
-# ax2.set_yticks(ticks, minor=False)#Set the y ticks with list of ticks(List of tick locations.)
-# ax2.set_yticklabels(labels, fontdict=None, minor=False, **kwargs)#Set the y-tick labels with list of strings labels.
+#More 
+%timeit sum(x)  # pure Python
 
-# ax2.xaxis_date(tz=None)  #Sets up x-axis ticks and labels that treat the x data as dates.
-# ax2.yaxis_date(tz=None)  #Sets up y-axis ticks and labels that treat the y data as dates.
-# ax2.minorticks_off()     #Remove minor ticks from the axes.
-# ax2.minorticks_on()      #Remove minor ticks from the axes.
+#And 
+%timeit np.sum(xa)  # NumPy
 
+
+###matplotlib 
+#four plots 
+t = np.arange(0.0, 5.0, 0.2)
+fig, axs = plt.subplots(2,2)  #axs.shape = (2,2)
+#fig, ((ax1,ax2),(ax3,ax4)) = plt.subplots(2,2)  #axs.shape = (2,2)
+fig.suptitle('multiplot', fontsize=16)
+axs[0,0].plot(t,t, 'r-')
+axs[0,1].scatter(t, t**2, color='b')
+axs[0,1].set_xlabel("x axis", loc='left')
+axs[0,1].set_ylabel("y axis")
+axs[1,0].plot(t,np.sin(t), lw=2)
+axs[1,0].set_title("sin plot", pad=5)
+axs[1,1].plot(t[t>0], np.log(t[t>0]), color='burlywood')
+axs[1,1].legend(['log line'])
+#adjusting 
+fig.tight_layout()  # default values , automatically adjusts
+#fig.tight_layout(pad=+ or - N) , + squeezes each plot, - expands 
 #then show 
 plt.show()
 
-##numpy -HANDS-ON 
+###numpy&matplotlib -HANDS-ON 
 The Lévi function is one of the many test functions for optimization 
 that researchers have developed to study and benchmark optimization algorithms 
 (https://en.wikipedia.org/wiki/Test_functions_for_optimization):
@@ -207,7 +285,7 @@ $$f(x,y) = sin^2(3\pi x)+(x−1)^2(1+sin^2(3\pi y))+(y−1)^2(1+sin^2(2\pi y))$$
 
 Use 
 https://numpy.org/doc/stable/reference/generated/numpy.mgrid.html
-
+*HANDSON*
 Find out Z=f(x,y) on [−10,10] 
 
 Then follow below to draw the surface 
@@ -236,8 +314,69 @@ ax.scatter(x0, y0, s=100)
 ax.set_axis_off()
 
 
+###Pandas 
+
+#but in same plot with Name as plot name
+gp = iris.groupby('Name') 
+plt.figure()
+for i, (name, pdf) in enumerate(gp):
+    # create subplot axes in a 3x3 grid
+    ax = plt.subplot(3, 1, i + 1) # nrows, ncols, axes position
+    # plot the continent on these axes
+    pdf.plot(ax=ax)
+    # set the title
+    ax.set_title(name)
+    # set the aspect
+    # adjustable datalim ensure that the plots have the same axes size
+    #ax.set_aspect('equal', adjustable='datalim')
+
+plt.subplots_adjust(hspace=2)
+plt.tight_layout(pad=-2)
+
+#plt.tight_layout() #legend goes out of the plot, no specific padding 
+#plt.tight_layout(pad=+3 or -3) # + squeezes the plot, - expands, but title is inside the plot  
+plt.tight_layout(pad=1.08, h_pad=None, w_pad=None, rect=None)[source]
+    Automatically adjust subplot parameters to give specified padding.
+    pad : float
+        Padding between the figure edge 
+        and the edges of subplots, as a fraction of the 
+        font size.
+    h_pad, w_pad : float, optional
+        Padding (height/width) between edges of adjacent 
+        subplots, as a fraction of the font size. 
+        Defaults to pad.
+    rect : tuple (left, bottom, right, top), optional
+        A rectangle (left, bottom, right, top) 
+        in the normalized figure coordinate that the 
+        whole subplots area (including labels) will fit into.
+        Default is (0, 0, 1, 1).
+
 ##Pandas - Handson 
-A. Daily attendance of bike tracks 
+
+A. Pandas connecting to DB within flask application 
+Connect to fake.db 
+Q1. Display below when dob between 1990 to 2009-12-31
+
+DOB         Country         count 
+1990-1994
+1995-1999
+2000-2004
+2005-2009
+* Use pd.to_datetime to convert datetime.date to pandas datetime 
+  pd.to_datetime(datetime.date(1990,1,1))
+* There is textbox specifying no of top items, this is used to display data accordingly
+* download quick_server.py and update 
+* display code is already present 
+
+B. Titanic - https://www.kaggle.com/c/titanic/data
+Based on condition, whether, somebody is survived or not 
+1.Load the data
+2. Which gender survived more 
+3. Does it depend on pclass?
+4. Not clear, can we see % of survival of each gender and pclass 
+What inference? 
+
+C. Daily attendance of bike tracks 
 (also available in data folder)
 url = "https://raw.githubusercontent.com/ndas1971/Misc/master/data/bikes.csv"
 
@@ -270,16 +409,7 @@ def plot(n=5):
     plt.show()
 
 
-B. Titanic - https://www.kaggle.com/c/titanic/data
-Based on condition, whether, somebody is survived or not 
-1.Load the data
-2. Which gender survived more 
-3. Does it depend on pclass?
-4. Not clear, can we see % of survival of each gender and pclass 
-What inference? 
-
-
-C. Roger Federer database 
+D. Roger Federer database 
 Each row corresponds to a ATP match played by Roger Federer.
 player = 'Roger Federer'
 url = "https://raw.githubusercontent.com/ndas1971/Misc/master/data/federer.csv"
@@ -297,26 +427,29 @@ Display simple stats of above
 Trend: display average double faults in each year 
                  
                  
-D. Excel "data/sales_transactions.xlsx"
+
+
+
+###Pandas- Timeseries Complex Plot 
+#4x4 gridspecs, specification for 0,0 cell , row spanning 3 rows, column spanning 4 columns 
+top = plt.subplot2grid((4,4), (0, 0), rowspan=3, colspan=4)
+top.plot(dft.index, dft["Close"])
+plt.title('Nifty close from 2000 - 2018')
+
+#4x4 gridspecs, specification for 3,0 cell , row spanning 1 rows, column spanning 4 columns 
+bottom = plt.subplot2grid((4,4), (3,0), rowspan=1, colspan=4)
+bottom.bar(dft.index, dft['Day Wise Variation ( points) '])
+plt.title('Nifty Day wise variations ')
+
+ 
+##More Handson 
+E. Excel "data/sales_transactions.xlsx"
 Q. "What percentage of the total order  does each order represent?"
 
 
-F. Pandas connecting to DB within flask application 
-Connect to fake.db 
-Q1. Display below when dob between 1990 to 2009-12-31
 
-DOB         Country         count 
-1990-1994
-1995-1999
-2000-2004
-2005-2009
-* Use pd.to_datetime to convert datetime.date to pandas datetime 
-  pd.to_datetime(datetime.date(1990,1,1))
-* There is textbox specifying no of top items, this is used to display data accordingly
-* download quick_server.py and update 
-* display code is already present 
 
-G. Titanic - https://www.kaggle.com/c/titanic/data
+F. Titanic - https://www.kaggle.com/c/titanic/data
 0. Understand data, download only train.csv 
 A. Do below in pandas 
 1. Read data 
@@ -345,11 +478,28 @@ h)Create 'final_age' which would contain 'age' if not NaN else value of 'AgeFill
 11. drop age column 
 12.Drop any row which contain any NaN 
 
+###Violin plot: Draw a combination of boxplot and kernel density estimate.
+# treats one y against one or two categorical feature 
+#or Seaborn 
 
+import seaborn as sns
+tips = sns.load_dataset("tips")
+sns.violinplot(x="smoker", y="tip", hue="sex",
+                    data=tips, palette="muted")
+                    
+#iris - Name vs y 
 
-
- 
-
+import seaborn as sns
+#in width, height in inches
+fig = plt.figure(figsize=(10,10))
+i = 0
+for y in iris.columns[0:4]:
+    fig.add_subplot(2,2,i+1)
+    sns.violinplot(x="Name", y=y,data=iris, palette="muted")
+    plt.xticks(rotation=90)
+    #ax.get_xaxis().set_ticks([])
+    i += 1
+fig.tight_layout()
 
 ###hypothesis testing 
 
