@@ -301,7 +301,7 @@ D. Excel "data/sales_transactions.xlsx"
 Q. "What percentage of the total order  does each order represent?"
 
 
-F. Pandas connecting to DB 
+F. Pandas connecting to DB within flask application 
 Connect to fake.db 
 Q1. Display below when dob between 1990 to 2009-12-31
 
@@ -310,7 +310,11 @@ DOB         Country         count
 1995-1999
 2000-2004
 2005-2009
-
+* Use pd.to_datetime to convert datetime.date to pandas datetime 
+  pd.to_datetime(datetime.date(1990,1,1))
+* There is textbox specifying no of top items, this is used to display data accordingly
+* download quick_server.py and update 
+* display code is already present 
 
 G. Titanic - https://www.kaggle.com/c/titanic/data
 0. Understand data, download only train.csv 
