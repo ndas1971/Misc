@@ -792,6 +792,28 @@ manifold_embedding(X, Y, manifold="isomap", n_neighbors=10, ax=axes[0], show=Fal
 manifold_embedding(X, Y, manifold="mds", n_neighbors=10, ax=axes[1], show=False,target_type="continuous")
 plt.show()  
 
+###HandsOn - 
+#https://archive.ics.uci.edu/ml/datasets/Breast+Cancer+Wisconsin+(Diagnostic)
+#check breast_cancer.csv 
+#Diagnosis (M = malignant,1, B = benign,0) 
+1) ID number
+2) Diagnosis (M = malignant, B = benign)
+3-32)Ten real-valued features are computed for each cell nucleus:
+a) radius (mean of distances from center to points on the perimeter)
+b) texture (standard deviation of gray-scale values)
+c) perimeter
+d) area
+e) smoothness (local variation in radius lengths)
+f) compactness (perimeter^2 / area - 1.0)
+g) concavity (severity of concave portions of the contour)
+h) concave points (number of concave portions of the contour)
+i) symmetry
+j) fractal dimension ("coastline approximation" - 1)
+
+But use below and LogisticRegression
+X,y = load_breast_cancer(return_X_y=True)
+
+
 ###SVM 
 iris = load_iris()
 parameters = {'kernel':('linear', 'rbf'), 'C':[1, 10]}
